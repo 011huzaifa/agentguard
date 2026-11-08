@@ -1,0 +1,17 @@
+[package]
+name = "guard"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = { version = "5.17", features = ["unit-testing"] }
+borsh = "1"
+
+[dev-dependencies]
+near-workspaces = "0.24.0-rc.1"
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+serde_json = "1"
