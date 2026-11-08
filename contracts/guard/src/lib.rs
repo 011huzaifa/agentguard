@@ -3,7 +3,7 @@ use near_sdk::serde::{Deserialize, Serialize};
 use near_sdk::store::{LookupMap, LookupSet, Vector};
 use near_sdk::events::Nep297Event;
 use near_sdk::{
-    env, near, require, AccountId, Allowance, CryptoHash, Gas, NearToken, Promise, PublicKey,
+    env, near, require, AccountId, Allowance, CryptoHash, Gas, NearSchema, NearToken, Promise, PublicKey,
 };
 
 const MAX_BUCKETS: u32 = 24;
@@ -19,6 +19,7 @@ const MAX_ALLOWANCE_YOCTO: u128 = 250_000_000_000_000_000_000_000; // 0.25 NEAR
 
 #[derive(Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[derive(BorshSerialize, BorshDeserialize)]
+#[derive(NearSchema)]
 #[serde(crate = "near_sdk::serde")]
 pub enum RequestStatus {
     Pending,
@@ -32,6 +33,7 @@ pub enum RequestStatus {
 
 #[derive(Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[derive(BorshSerialize, BorshDeserialize)]
+#[derive(NearSchema)]
 #[serde(crate = "near_sdk::serde")]
 pub enum UnknownRecipientPolicy {
     Deny,
@@ -40,6 +42,7 @@ pub enum UnknownRecipientPolicy {
 
 #[derive(Clone, Serialize, Deserialize)]
 #[derive(BorshSerialize, BorshDeserialize)]
+#[derive(NearSchema)]
 #[serde(crate = "near_sdk::serde")]
 pub struct TokenPolicy {
     pub token: Option<AccountId>,
@@ -50,6 +53,7 @@ pub struct TokenPolicy {
 }
 
 #[derive(Clone, Serialize, Deserialize)]
+#[derive(NearSchema)]
 #[serde(crate = "near_sdk::serde")]
 pub struct AgentPolicy {
     pub count_limit: u32,
@@ -67,6 +71,7 @@ pub struct AgentPolicy {
 }
 
 #[derive(Clone, Serialize, Deserialize)]
+#[derive(NearSchema)]
 #[serde(crate = "near_sdk::serde")]
 pub struct Verdict {
     pub request_id: u64,
@@ -113,6 +118,7 @@ pub enum GuardEvent {
 
 #[derive(Clone, Serialize, Deserialize)]
 #[derive(BorshSerialize, BorshDeserialize)]
+#[derive(NearSchema)]
 #[serde(crate = "near_sdk::serde")]
 pub struct Decision {
     pub request_id: u64,
@@ -127,6 +133,7 @@ pub struct Decision {
 
 #[derive(Clone, Serialize, Deserialize)]
 #[derive(BorshSerialize, BorshDeserialize)]
+#[derive(NearSchema)]
 #[serde(crate = "near_sdk::serde")]
 pub struct PaymentRequest {
     pub id: u64,
@@ -147,6 +154,7 @@ pub struct PaymentRequest {
 }
 
 #[derive(Clone, BorshSerialize, BorshDeserialize, Serialize, Deserialize)]
+#[derive(NearSchema)]
 #[serde(crate = "near_sdk::serde")]
 pub struct AgentConfig {
     pub count_limit: u32,

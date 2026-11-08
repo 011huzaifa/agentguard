@@ -1,0 +1,6 @@
+huzaifa@huzaifa:~/Huzaifa/projects/AgentGuard/contracts/guard$ near account list-keys vault.agentguard-0xhawk.testnet network-config testnet now
++---+------------------------------------------------------+-----------------+-------------+
+| # | Public Key                                           | Nonce           | Permissions |
++---+------------------------------------------------------+-----------------+-------------+
+| 1 | ed25519:42oEGhh1wvSWnHN9kWBps2oTpsYYsyt6r41J1nKPBdHZ | 276802647000000 | full access |
++---+------------------------------------------------------+-----------------+-------------+
